@@ -21,8 +21,9 @@
 
   .bar-row { display: flex; align-items: center; margin-bottom: 10px; font-size: 13px; }
   .bar-label { width: 340px; min-width: 340px; color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 10px; }
-  .bar-wrap { flex: 1; background: #ecf0f1; border-radius: 4px; height: 22px; position: relative; }
-  .bar-fill { height: 100%; border-radius: 4px; background: #3498db; display: flex; align-items: center; padding-left: 8px; color: #fff; font-size: 12px; font-weight: 600; min-width: 24px; }
+  .bar-wrap { flex: 1; background: #ecf0f1; border-radius: 4px; height: 22px; position: relative; display: flex; align-items: center; }
+  .bar-fill { height: 100%; border-radius: 4px; background: #3498db; flex-shrink: 0; }
+  .bar-text { white-space: nowrap; font-size: 12px; font-weight: 600; padding: 0 8px; }
   .bar-fill.tt { background: #3498db; }
   .bar-fill.tf { background: #e67e22; }
   .bar-fill.organic { background: #27ae60; }
@@ -84,22 +85,35 @@
     <div class="bar-row">
       <div class="bar-label">Pagado (Meta Ads)</div>
       <div class="bar-wrap">
-        <div class="bar-fill" style="width:54%">149 (54%)</div>
+        <div class="bar-fill" style="width:54%"></div>
+        <span class="bar-text" style="color:#2d3436">149 (54%)</span>
       </div>
     </div>
     <div class="bar-row">
       <div class="bar-label">Orgánico</div>
       <div class="bar-wrap">
-        <div class="bar-fill organic" style="width:27%">76 (27%)</div>
+        <div class="bar-fill organic" style="width:27%"></div>
+        <span class="bar-text" style="color:#2d3436">76 (27%)</span>
       </div>
     </div>
     <div class="bar-row">
       <div class="bar-label">Origen Desconocido</div>
       <div class="bar-wrap">
-        <div class="bar-fill" style="width:19%; background:#bdc3c7">52 (19%)</div>
+        <div class="bar-fill" style="width:19%; background:#bdc3c7"></div>
+        <span class="bar-text" style="color:#2d3436">52 (19%)</span>
       </div>
     </div>
-    <p class="note">* Origen Desconocido = leads sin página registrada en GetResponse.</p>
+    <div style="margin-top:16px; background:#fff8e1; border-left:4px solid #f39c12; border-radius:6px; padding:14px 16px; font-size:13px; color:#555; line-height:1.7;">
+      <strong style="color:#e67e22;">⚠ Sobre el Origen Desconocido (52 ventas)</strong><br>
+      Estos leads probablemente compraron con un email diferente al que usaron para registrarse en el evento, por lo que no fue posible cruzar los datos con GetResponse.<br><br>
+      Usando como referencia la proporción de los leads con origen conocido —
+      <strong>Pagado 66,2%</strong> (149 de 225) y <strong>Orgánico 33,8%</strong> (76 de 225) —
+      se estima que de los 52 desconocidos:
+      <ul style="margin-top:8px; margin-left:20px;">
+        <li>~<strong>34 serían de origen pagado</strong></li>
+        <li>~<strong>18 serían de origen orgánico</strong></li>
+      </ul>
+    </div>
   </div>
 
   <!-- TT vs TF -->
@@ -108,13 +122,15 @@
     <div class="bar-row">
       <div class="bar-label">Top of Funnel Tibio (TT)</div>
       <div class="bar-wrap">
-        <div class="bar-fill tt" style="width:84%">122 ventas (84%)</div>
+        <div class="bar-fill tt" style="width:84%"></div>
+        <span class="bar-text" style="color:#2d3436">122 ventas (84%)</span>
       </div>
     </div>
     <div class="bar-row">
       <div class="bar-label">Top of Funnel Frío (TF)</div>
       <div class="bar-wrap">
-        <div class="bar-fill tf" style="width:16%">24 ventas (16%)</div>
+        <div class="bar-fill tf" style="width:16%"></div>
+        <span class="bar-text" style="color:#2d3436">24 ventas (16%)</span>
       </div>
     </div>
     <p class="note">* 3 ventas con UTM no rastreado ({{campaign.name}}) excluidas de este cálculo.</p>
@@ -128,36 +144,120 @@
         <tr>
           <th>Campaña</th>
           <th style="text-align:center">Tipo</th>
-          <th style="text-align:center">País</th>
-          <th style="text-align:right">Inversión</th>
+          <th style="text-align:right">Inversión (€)</th>
           <th style="text-align:center">Ventas</th>
-          <th style="text-align:right">CPV</th>
+          <th style="text-align:right">CPV (€)</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>[DOLOR G - FUERZA FÍSICA] Super Calientes</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$115.484</td><td style="text-align:center">22</td><td style="text-align:right">$5.249</td></tr>
-        <tr><td>[DOLOR CORE] Super Calientes</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$111.164</td><td style="text-align:center">21</td><td style="text-align:right">$5.294</td></tr>
-        <tr><td>[DOLOR H - IMAGEN FÍSICA] Super Calientes</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$79.210</td><td style="text-align:center">15</td><td style="text-align:right">$5.281</td></tr>
-        <tr><td>[DOLOR B - ENERGÍA Y VITALIDAD] Super Calientes</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$51.051</td><td style="text-align:center">13</td><td style="text-align:right">$3.927</td></tr>
-        <tr><td>[DOLOR F - FOCO] Super Calientes</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$57.965</td><td style="text-align:center">11</td><td style="text-align:right">$5.270</td></tr>
-        <tr><td>[DOLOR H - IMAGEN FÍSICA]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$8.624</td><td style="text-align:center">10</td><td style="text-align:right">$862</td></tr>
-        <tr><td>[DOLOR H - IMAGEN FÍSICA] Super Calientes</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$37.088</td><td style="text-align:center">9</td><td style="text-align:right">$4.121</td></tr>
-        <tr><td>[DOLOR E - SALUD MENTAL] Super Calientes</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$35.239</td><td style="text-align:center">9</td><td style="text-align:right">$3.916</td></tr>
-        <tr><td>[DOLOR G - FUERZA FÍSICA]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$5.576</td><td style="text-align:center">6</td><td style="text-align:right">$929</td></tr>
-        <tr><td>[DOLOR H - IMAGEN FÍSICA]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:center"><span class="tag us">US</span></td><td style="text-align:right">$40.495</td><td style="text-align:center">6</td><td style="text-align:right">$6.749</td></tr>
-        <tr><td>[DOLOR E - SALUD MENTAL]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$3.225</td><td style="text-align:center">4</td><td style="text-align:right">$806</td></tr>
-        <tr><td>[DOLOR F - FOCO]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$3.584</td><td style="text-align:center">4</td><td style="text-align:right">$896</td></tr>
-        <tr><td>[DOLOR CORE]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:center"><span class="tag us">US</span></td><td style="text-align:right">$11.219</td><td style="text-align:center">3</td><td style="text-align:right">$3.740</td></tr>
-        <tr><td>[DOLOR C - DIGESTIÓN / INFLAMACIÓN]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag arg">ARG</span></td><td style="text-align:right">$2.205</td><td style="text-align:center">3</td><td style="text-align:right">$735</td></tr>
-        <tr><td>[DOLOR H - IMAGEN FÍSICA]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag es">ES</span></td><td style="text-align:right">€5.793</td><td style="text-align:center">3</td><td style="text-align:right">€1.931</td></tr>
-        <tr><td>[DOLOR E - SALUD MENTAL]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:center"><span class="tag us">US</span></td><td style="text-align:right">$4.927</td><td style="text-align:center">2</td><td style="text-align:right">$2.464</td></tr>
-        <tr><td>[DOLOR G - FUERZA FÍSICA]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:center"><span class="tag us">US</span></td><td style="text-align:right">$12.603</td><td style="text-align:center">2</td><td style="text-align:right">$6.301</td></tr>
-        <tr><td>[DOLOR F - FOCO]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:center"><span class="tag us">US</span></td><td style="text-align:right">$5.967</td><td style="text-align:center">1</td><td style="text-align:right">$5.967</td></tr>
-        <tr><td>[DOLOR E - SALUD MENTAL]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:center"><span class="tag es">ES</span></td><td style="text-align:right">€1.492</td><td style="text-align:center">1</td><td style="text-align:right">€1.492</td></tr>
-        <tr><td>[DOLOR F - FOCO]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:center"><span class="tag es">ES</span></td><td style="text-align:right">€590</td><td style="text-align:center">1</td><td style="text-align:right">€590</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [G] - FUERZA FÍSICA] [SUPER CALIENTES]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€5.249,29</td><td style="text-align:center">22</td><td style="text-align:right">€238,60</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [CORE]] [SUPER CALIENTES]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€5.293,50</td><td style="text-align:center">21</td><td style="text-align:right">€252,07</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [H] - IMAGEN FÍSICA] [SUPER CALIENTES]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€5.280,67</td><td style="text-align:center">15</td><td style="text-align:right">€352,04</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [B] - ENERGÍA Y VITALIDAD] [SUPER CALIENTES]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€3.926,98</td><td style="text-align:center">13</td><td style="text-align:right">€302,08</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [F] - FOCO] [SUPER CALIENTES]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€5.269,58</td><td style="text-align:center">11</td><td style="text-align:right">€479,05</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [H] - IMAGEN FÍSICA]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€862,36</td><td style="text-align:center">10</td><td style="text-align:right">€86,24</td></tr>
+        <tr><td>[04/2026] [ARG] [TF] [DOLOR [H] - IMAGEN FÍSICA] [SUPER CALIENTES]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:right">€4.120,91</td><td style="text-align:center">9</td><td style="text-align:right">€457,88</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [E] - SALUD MENTAL] [SUPER CALIENTES]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€3.915,46</td><td style="text-align:center">9</td><td style="text-align:right">€435,05</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [G] - FUERZA FÍSICA]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€929,37</td><td style="text-align:center">6</td><td style="text-align:right">€154,90</td></tr>
+        <tr><td>[04/2026] [US] [TF] [DOLOR [H] - IMAGEN FÍSICA]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:right">€6.749,15</td><td style="text-align:center">6</td><td style="text-align:right">€1.124,86</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [E] - SALUD MENTAL]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€806,16</td><td style="text-align:center">4</td><td style="text-align:right">€201,54</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [F] - FOCO]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€896,10</td><td style="text-align:center">4</td><td style="text-align:right">€224,03</td></tr>
+        <tr><td>[04/2026] [US] [TF] [DOLOR [CORE]]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:right">€3.739,64</td><td style="text-align:center">3</td><td style="text-align:right">€1.246,55</td></tr>
+        <tr><td>[04/2026] [ARG] [TT] [DOLOR [C] - DIGESTIÓN / INFLAMACIÓN]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€735,03</td><td style="text-align:center">3</td><td style="text-align:right">€245,01</td></tr>
+        <tr><td>[04/2026] [ES] [TT] [DOLOR [H] - IMAGEN FÍSICA]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€1.930,94</td><td style="text-align:center">3</td><td style="text-align:right">€643,65</td></tr>
+        <tr><td>[04/2026] [US] [TF] [DOLOR [E] - SALUD MENTAL]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:right">€2.463,53</td><td style="text-align:center">2</td><td style="text-align:right">€1.231,77</td></tr>
+        <tr><td>[04/2026] [US] [TF] [DOLOR [G] - FUERZA FÍSICA]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:right">€6.301,40</td><td style="text-align:center">2</td><td style="text-align:right">€3.150,70</td></tr>
+        <tr><td>[04/2026] [US] [TF] [DOLOR [F] - FOCO]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:right">€5.966,63</td><td style="text-align:center">1</td><td style="text-align:right">€5.966,63</td></tr>
+        <tr><td>[04/2026] [ES] [TT] [DOLOR [E] - SALUD MENTAL]</td><td style="text-align:center"><span class="tag tt">TT</span></td><td style="text-align:right">€1.492,20</td><td style="text-align:center">1</td><td style="text-align:right">€1.492,20</td></tr>
+        <tr><td>[04/2026] [ES] [TF] [DOLOR [F] - FOCO]</td><td style="text-align:center"><span class="tag tf">TF</span></td><td style="text-align:right">€589,97</td><td style="text-align:center">1</td><td style="text-align:right">€589,97</td></tr>
       </tbody>
     </table>
-    <p class="note">* Valores ARG en ARS · Valores US en USD · Valores ES en EUR. CPV = Inversión total de la campaña ÷ ventas atribuidas.</p>
+    <p class="note">* CPV = Inversión total de la campaña ÷ ventas atribuidas. Campañas de retargeting y períodos fuera de 04/2026 excluidos.</p>
+  </div>
+
+  <!-- Ventas por Foco -->
+  <div class="section">
+    <h2>Ventas por Foco (Dolor)</h2>
+    <p style="font-size:13px; color:#7f8c8d; margin-bottom:18px;">Extraído del nombre de campaña. Total: 146 ventas pagadas atribuidas a un foco.</p>
+    <div class="bar-row">
+      <div class="bar-label"><strong>[H]</strong> — Imagen Física</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:74%; background:#8e44ad;"></div>
+        <span class="bar-text" style="color:#2d3436;">43 ventas (29%)</span>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><strong>[G]</strong> — Fuerza Física</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:52%; background:#2980b9;"></div>
+        <span class="bar-text" style="color:#2d3436;">30 ventas (21%)</span>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><strong>[CORE]</strong> — Core</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:41%; background:#27ae60;"></div>
+        <span class="bar-text" style="color:#2d3436;">24 ventas (16%)</span>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><strong>[F]</strong> — Foco</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:29%; background:#e67e22;"></div>
+        <span class="bar-text" style="color:#2d3436;">17 ventas (12%)</span>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><strong>[E]</strong> — Salud Mental</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:28%; background:#e74c3c;"></div>
+        <span class="bar-text" style="color:#2d3436;">16 ventas (11%)</span>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><strong>[B]</strong> — Energía y Vitalidad</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:22%; background:#16a085;"></div>
+        <span class="bar-text" style="color:#2d3436;">13 ventas (9%)</span>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><strong>[C]</strong> — Digestión / Inflamación</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:5%; background:#95a5a6;"></div>
+        <span class="bar-text" style="color:#2d3436;">3 ventas (2%)</span>
+      </div>
+    </div>
+    <p class="note">* 3 ventas con UTM no rastreado excluidas. Filas en gris = focos sin ventas atribuidas (solo inversión registrada).</p>
+
+    <table style="margin-top:24px;">
+      <thead>
+        <tr>
+          <th>Foco</th>
+          <th>Descripción</th>
+          <th style="text-align:right">Inversión (€)</th>
+          <th style="text-align:center">Ventas</th>
+          <th style="text-align:right">CPV (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>[H]</strong></td><td>Imagen Física</td><td style="text-align:right">€18.944,03</td><td style="text-align:center">43</td><td style="text-align:right">€440,56</td></tr>
+        <tr><td><strong>[G]</strong></td><td>Fuerza Física</td><td style="text-align:right">€12.480,06</td><td style="text-align:center">30</td><td style="text-align:right">€416,00</td></tr>
+        <tr><td><strong>[CORE]</strong></td><td>Core</td><td style="text-align:right">€9.033,14</td><td style="text-align:center">24</td><td style="text-align:right">€376,38</td></tr>
+        <tr><td><strong>[F]</strong></td><td>Foco</td><td style="text-align:right">€12.722,28</td><td style="text-align:center">17</td><td style="text-align:right">€748,37</td></tr>
+        <tr><td><strong>[E]</strong></td><td>Salud Mental</td><td style="text-align:right">€8.677,35</td><td style="text-align:center">16</td><td style="text-align:right">€542,33</td></tr>
+        <tr><td><strong>[B]</strong></td><td>Energía y Vitalidad</td><td style="text-align:right">€3.926,98</td><td style="text-align:center">13</td><td style="text-align:right">€302,08</td></tr>
+        <tr><td><strong>[C]</strong></td><td>Digestión / Inflamación</td><td style="text-align:right">€735,03</td><td style="text-align:center">3</td><td style="text-align:right">€245,01</td></tr>
+        <tr style="color:#95a5a6;"><td><strong>[A]</strong></td><td>Sueño</td><td style="text-align:right">€1.613,23</td><td style="text-align:center">—</td><td style="text-align:right">—</td></tr>
+        <tr style="color:#95a5a6;"><td><strong>[D]</strong></td><td>Salud Sexual</td><td style="text-align:right">€1.137,32</td><td style="text-align:center">—</td><td style="text-align:right">—</td></tr>
+        <tr style="background:#f0f4f8; font-weight:600;">
+          <td colspan="2">Total</td>
+          <td style="text-align:right">€68.269,42</td>
+          <td style="text-align:center">146</td>
+          <td style="text-align:right">€455,61</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <!-- Lead Scoring -->
@@ -216,6 +316,100 @@
         </table>
       </div>
     </div>
+  </div>
+
+  <!-- Por País -->
+  <div class="section">
+    <h2>Rendimiento por País</h2>
+
+    <p style="font-size:13px; color:#7f8c8d; margin-bottom:18px;">Leads captados y ventas por país — campañas <strong>[04/2026]</strong>, sin retarget</p>
+
+    <!-- Leads por País (barras) -->
+    <p style="font-size:11px; color:#7f8c8d; margin-bottom:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Leads captados por país</p>
+
+    <div class="bar-row">
+      <div class="bar-label"><span class="tag arg">AR</span> Argentina</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:95%"></div>
+        <span class="bar-text" style="color:#2d3436">37.332</span>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span class="tag us">US</span> Estados Unidos</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:16%; background:#8e44ad"></div>
+        <span class="bar-text" style="color:#2d3436">6.210</span>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span class="tag es">ES</span> España</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="width:7%; background:#f39c12"></div>
+        <span class="bar-text" style="color:#2d3436">2.874</span>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label" style="color:#95a5a6;">Otros países</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" style="min-width:3px; width:2.1%; background:#bdc3c7"></div>
+        <span class="bar-text" style="color:#95a5a6;">845</span>
+      </div>
+    </div>
+
+    <!-- Tabla detallada -->
+    <table style="margin-top:24px;">
+      <thead>
+        <tr>
+          <th>País</th>
+          <th style="text-align:right">Leads</th>
+          <th style="text-align:right">Ventas</th>
+          <th style="text-align:right">Conversión</th>
+          <th style="text-align:right">Inversión</th>
+          <th style="text-align:right">CPL</th>
+          <th style="text-align:right">CPV</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag arg">AR</span> Argentina</td>
+          <td style="text-align:right">37.332</td>
+          <td style="text-align:right">175</td>
+          <td style="text-align:right">0,47%</td>
+          <td style="text-align:right">€39.456,15</td>
+          <td style="text-align:right">€1,06</td>
+          <td style="text-align:right">€225,46</td>
+        </tr>
+        <tr>
+          <td><span class="tag us">US</span> Estados Unidos</td>
+          <td style="text-align:right">6.210</td>
+          <td style="text-align:right">14</td>
+          <td style="text-align:right">0,23%</td>
+          <td style="text-align:right">€27.958,23</td>
+          <td style="text-align:right">€4,50</td>
+          <td style="text-align:right">€1.997,02</td>
+        </tr>
+        <tr>
+          <td><span class="tag es">ES</span> España</td>
+          <td style="text-align:right">2.874</td>
+          <td style="text-align:right">7</td>
+          <td style="text-align:right">0,24%</td>
+          <td style="text-align:right">€12.459,55</td>
+          <td style="text-align:right">€4,34</td>
+          <td style="text-align:right">€1.779,94</td>
+        </tr>
+        <tr style="color:#95a5a6;">
+          <td>Otros países</td>
+          <td style="text-align:right">845</td>
+          <td style="text-align:right">29</td>
+          <td style="text-align:right">3,43%</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right">—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note" style="margin-top:14px;">CPL y CPV calculados únicamente para países con campañas segmentadas por territorio: ARG (€39.456), ES (€12.460), US (€27.958). Los países sin inversión atribuida muestran <strong>—</strong>. Ventas sin email cruzado con GetResponse no están incluidas en el desglose por país.</div>
   </div>
 
 </div>
